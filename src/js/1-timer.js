@@ -14,4 +14,6 @@ const options = {
 };
 
 let userSelectedDate = flatpickr(calendar, options);
+const test = a;
+
 
