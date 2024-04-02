@@ -1,5 +1,6 @@
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
+import { createLogger } from "vite";
 
 flatpickr("#datetime-picker", {
   enableTime: true,
@@ -7,8 +8,12 @@ flatpickr("#datetime-picker", {
   defaultDate: new Date(),
   minuteIncrement: 1,
   onClose(selectedDates) {
+    const validTime = selectedDates[0] - new Date();
+    console.log(validTime);
   console.log(selectedDates[0]);
   },
 });
 
-console.log()
+let userSelectedDate;
+
+const startButton = document.querySelector("button");
