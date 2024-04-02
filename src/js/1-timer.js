@@ -1,7 +1,8 @@
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
 
-const calendar = document.querySelector("input#datetime-picker");
+
+const flatpickr = flatpickr("#datetime-picker", {options});
 
 const options = {
   enableTime: true,
@@ -13,8 +14,7 @@ const options = {
   },
 };
 
-let userSelectedDate = flatpickr(calendar, options);
-const test = a;
-const test2 = b;
+const calendar = document.querySelector("flatpickr");
+calendar.addEventListener("click", flatpickr);
 
 
