@@ -41,10 +41,10 @@ function startTimer() {
     let intervalID = setInterval(() => {
     const currentTime = Date.now();
     let remainerOfTime = userSelectedDate.getTime() - currentTime;
-    daysDisplay.textContent = convertMs(remainerOfTime).days;
-    hoursDisplay.textContent = convertMs(remainerOfTime).hours;
-    minutesDisplay.textContent = convertMs(remainerOfTime).minutes;
-    secondsDisplay.textContent = convertMs(remainerOfTime).seconds;
+    daysDisplay.textContent = addLeadingZero(convertMs(remainerOfTime).days);
+    hoursDisplay.textContent = addLeadingZero(convertMs(remainerOfTime).hours);
+    minutesDisplay.textContent = addLeadingZero(convertMs(remainerOfTime).minutes);
+    secondsDisplay.textContent = addLeadingZero(convertMs(remainerOfTime).seconds);
     if (remainerOfTime < 1000) {
       clearInterval(intervalID);
     }
@@ -68,6 +68,6 @@ function convertMs(ms) {
 }
 
 function addLeadingZero(value) {
-  value.toString().padStart(2, "0");
+  return value.toString().padStart(2, "0");
 }
 
