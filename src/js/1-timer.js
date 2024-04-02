@@ -35,20 +35,22 @@ flatpickr("#datetime-picker", {
   },
 });
 
-
 startButton.addEventListener("click", startTimer);
 
 function startTimer() {
-  setInterval(() => {
-    let remainerOfTime = userSelectedDate.getTime() - Date.now();
-    daysDisplay.innerHTML = convertMs(remainerOfTime).days;
-    hoursDisplay.innerHTML = convertMs(remainerOfTime).hours;
-    minutesDisplay.innerHTML = convertMs(remainerOfTime).minutes;
-    secondsDisplay.innerHTML = convertMs(remainerOfTime).seconds;
+    let intervalID = setInterval(() => {
+    const currentTime = Date.now();
+    let remainerOfTime = userSelectedDate.getTime() - currentTime;
+    daysDisplay.textContent = convertMs(remainerOfTime).days;
+    hoursDisplay.textContent = convertMs(remainerOfTime).hours;
+    minutesDisplay.textContent = convertMs(remainerOfTime).minutes;
+    secondsDisplay.textContent = convertMs(remainerOfTime).seconds;
+    if (remainerOfTime < 1000) {
+      clearInterval(intervalID);
+    }
   }, 1000);
   startButton.disabled = true;
   inputTimer.disabled = true;
-
 }
 
 function convertMs(ms) {
@@ -66,8 +68,6 @@ function convertMs(ms) {
 }
 
 function addLeadingZero(value) {
-
+  value.toString().padStart(2, "0");
 }
-
-
 
