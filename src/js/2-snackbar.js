@@ -11,10 +11,11 @@ function createPromise(event) {
   const stateOfPromise = event.target.elements.state.value;
 
   if (delayOfPromise <= 0) {
-  iziToast.error({
-    title: 'Error',
-    message: "The delay value must be greater than 0",
+    iziToast.show({
+    backgroundColor: "yellow",
     position: "topRight",
+    title: "Correct",
+    message: "The delay value must be greater than 0",
   });
     return;
   }
@@ -30,16 +31,16 @@ function createPromise(event) {
   });
 
   promise.then((value) => {
-    iziToast.success({
+    iziToast.show({
       color: "green",
       position: "topRight",
-      message: `✅ Fulfilled promise in ${value}ms`
+      message: `✅ Fulfilled promise in ${value}ms`,
     });
   }).catch((error) => {
-    iziToast.error({
-      color: 'red',
+    iziToast.show({
+      color: "red",
       position: "topRight",
-      message: `❌ Rejected promise in ${error}ms`
+      message: `❌ Rejected promise in ${error}ms`,
     });
   });
   form.reset();
