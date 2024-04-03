@@ -14,8 +14,9 @@ function createPromise(event) {
     iziToast.show({
     backgroundColor: "yellow",
     position: "topRight",
-    title: "Correct",
+    title: "Caution",
     message: "The delay value must be greater than 0",
+    close: false,
   });
     return;
   }
@@ -35,12 +36,14 @@ function createPromise(event) {
       color: "green",
       position: "topRight",
       message: `✅ Fulfilled promise in ${value}ms`,
+      close: false,
     });
   }).catch((error) => {
     iziToast.show({
       color: "red",
       position: "topRight",
       message: `❌ Rejected promise in ${error}ms`,
+      close: false,
     });
   });
   form.reset();
