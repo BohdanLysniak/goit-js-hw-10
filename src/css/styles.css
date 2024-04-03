@@ -23,3 +23,18 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+
+.menu-navigation {
+  display: flex;
+  column-gap: 16px;
+  margin-top: 28px;
+  margin-left: 28px;
+}
+
+a {
+  display: block;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: #2e2f42;
+}
